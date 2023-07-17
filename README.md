@@ -1,0 +1,1 @@
+# Image-Resizing-Using-Seam-Carving-Algorithm
