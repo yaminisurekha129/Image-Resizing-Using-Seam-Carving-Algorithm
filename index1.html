@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resizing</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/files/background.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        .container {
+            max-width: 500px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .submit-btn {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #428bca;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #3071a9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Resizing Using Seam Carving Algorithm</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <div>
+                <label for="{{ form.image.id }}">Image:</label>
+                {{ form.image(class="file-input-label") }}
+            </div>
+            <div>
+                <label for="{{ form.width.id }}">Width:</label>
+                {{ form.width(class="input-field") }}
+            </div>
+            <div>
+                <label for="{{ form.height.id }}">Height:</label>
+                {{ form.height(class="input-field") }}
+            </div>
+            <div>
+                {{ form.submit(class="submit-btn") }}
+            </div>
+        </form>
+    </div>
+</body>
+</html>
